@@ -61,17 +61,6 @@ def getResponseRobots(url):
     return soup_string
 
 
-def getSitemap(robots):
-    smap = []
-    for line in robots.splitlines():
-        if "Sitemap" in line:
-            if line.startswith("Sitemap"):
-                smap.append(line.split(' ')[1])
-            else:
-                smap.append(line.split('Sitemap: ')[1])
-    return smap
-
-
 def insertSiteToDB(url, response_robots, sitemap, db_connection):
     site_id = None
     cur = db_connection.cursor()
