@@ -7,7 +7,7 @@ db = {
     'port': '5432',
     'db_name': 'spider',
     'username': 'postgres',
-    'password': 'modronebo.12'
+    'password': 'postgres'
 }
 db_pool = None
 

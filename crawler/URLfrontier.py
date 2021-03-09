@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen as uReq
 from urllib.parse import urljoin, urlparse
 import urllib.error
+import urllib.robotparser
 from crawler.duplicateDetector import checkForDuplicateURL
 import hyperlink
 
@@ -12,7 +13,7 @@ Correctly respect the commands User-agent, Allow, Disallow, Crawl-delay and Site
 Make sure to respect robots.txt as sites that define special crawling rules often contain spider traps. 
 Also make sure that you follow ethics and do not send request to the same server more often than one request in 5 seconds (not only domain but also IP!).
 '''
-frontier = []
+user_agent = "fri-wier-norci"
 
 
 def processSeedPages(seed_urls, domains, db_connection):
@@ -20,25 +21,40 @@ def processSeedPages(seed_urls, domains, db_connection):
         if checkForDuplicateURL(seed, "domain", db_connection):
             continue
 
-        response_robots = getResponseRobots(seed)
+        robots_url = 'http://' + seed + '/robots.txt'
+        response_robots = getResponseRobots(robots_url)
+        sitemap = None
         if response_robots is not None:
-            sitemap = getSitemap(response_robots)
+            # get sitemaps
+            rp = urllib.robotparser.RobotFileParser()
+            rp.set_url(robots_url)
+            rp.read()
+            sitemap = rp.site_maps()
+
         site_id = insertSiteToDB(seed, response_robots, sitemap, db_connection)
-        print(site_id)
 
-    return frontier
+        # respect User-Agent
+        if rp.can_fetch(user_agent, seed) is False:
+            print("Robots not allowed")
+            return
+
+        # respect Crawl-delay
+        delay = rp.crawl_delay(user_agent)
+        if delay is not None:
+            time.sleep(delay)
+
+    return 0
 
 
-def getResponseRobots(seed):
+def getResponseRobots(url):
     soup_string = None
-    url = 'http://' + seed + '/robots.txt'
+
     try:
         uClient = uReq(url)
         robots_page = uClient.read()
         uClient.close()
         soup = BeautifulSoup(robots_page, "html.parser")
         soup_string = str(soup)
-        print("Robots.txt for", seed, ":\n", soup_string)
     except urllib.error.HTTPError as e:
         print('HTTPError: {}'.format(e.code))
 
@@ -46,13 +62,14 @@ def getResponseRobots(seed):
 
 
 def getSitemap(robots):
+    smap = []
     for line in robots.splitlines():
         if "Sitemap" in line:
             if line.startswith("Sitemap"):
-                smap = line.split(' ')[1]
+                smap.append(line.split(' ')[1])
             else:
-                smap = line.split('Sitemap: ')[1]
-            return smap
+                smap.append(line.split('Sitemap: ')[1])
+    return smap
 
 
 def insertSiteToDB(url, response_robots, sitemap, db_connection):
