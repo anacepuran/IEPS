@@ -2,8 +2,6 @@
 
 The following project is the implementation of the multi threaded web crawler developed in Python.
 
-Additional libraries included: bs4, psycopg2, hyperlink, selenium, hashlib, requests
-
 **POSTGRESQL SETUP:**
 
 1. Install postgresql (in the process you will be prompted to choose the password - I recommend "postgres")
@@ -15,5 +13,11 @@ Additional libraries included: bs4, psycopg2, hyperlink, selenium, hashlib, requ
    **\i 'path to the crawldb.sql file downloaded from moodle'** ... which runs the script and initiates the db values
 5. Now your local db should be set. Open the pgAdmin 4 web app (which was also installed with the shell and postgresql) and check whether the database was initiated correctly. Under schemas there should be one named crawldb!
 
+**RUN PROJECT:**
+
+1. **cd web_crawler**
+1. **.\env\Scripts\activate** (pip install virtualenv if you don't have it)
+1. **python main.py "number of workers"**
+
 **SELENIUM:**
-To enable selenium driver to work add its location to PATH!
+To enable selenium driver to work add its location to PATH?
