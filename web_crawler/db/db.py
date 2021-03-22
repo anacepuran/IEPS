@@ -31,8 +31,6 @@ def initiateConnectionToDatabase(seed_urls):
     sql_query = "SELECT * FROM crawldb.page LIMIT 1"
     cur.execute(sql_query)
     current_page = cur.fetchone()
-    print("Current URL in frontier: ", current_page)
-
     return [current_page, db_connection]
 
 
@@ -62,6 +60,21 @@ def insertSiteToDB(url, response_robots, sitemap, delay, db_connection):
     return site_id
 
 
+# GET SITE
+def getSeedSiteFromDB(current_page, db_connection):
+    robots_site = None
+
+    cur = db_connection.cursor()
+    try:
+        sql_query = """ SELECT * FROM crawldb.site
+                        WHERE id = %s """
+        cur.execute(sql_query, (current_page[1], ))
+        robots_site = cur.fetchone()
+    except Exception as error:
+        print("Fetching robots file led to", error)
+    return robots_site
+
+
 # GET FIRST UNPROCESSED PAGE
 def getFirstFromFrontier(db_connection):
     accessed_current_page = None
@@ -73,7 +86,6 @@ def getFirstFromFrontier(db_connection):
                         LIMIT 1 """
         cur.execute(sql_query)
         current_page = cur.fetchone()
-        print(current_page)
         if current_page is not None:
             now = datetime.now()
             access_time = now.strftime("%Y-%m-%d %H:%M:%S'")
@@ -83,7 +95,6 @@ def getFirstFromFrontier(db_connection):
                             WHERE id = %s 
                             RETURNING * """
             cur.execute(sql_query, (access_time, current_page[0]))
-            print(accessed_current_page)
             accessed_current_page = cur.fetchone()
             db_connection.commit()
     except Exception as error:
@@ -94,13 +105,13 @@ def getFirstFromFrontier(db_connection):
 # POST PAGE
 def insertPageToDB(url, site_id, db_connection):
     page_id = None
-
+    page_type_code = "HTML"
     cur = db_connection.cursor()
     try:
-        sql_query = """ INSERT into crawldb.page (site_id, url) 
-                        VALUES (%s, %s) 
+        sql_query = """ INSERT into crawldb.page (site_id, url, page_type_code) 
+                        VALUES (%s, %s, %s) 
                         RETURNING id """
-        cur.execute(sql_query, (site_id, url))
+        cur.execute(sql_query, (site_id, url, page_type_code))
         page_id = cur.fetchone()[0]
         db_connection.commit()
     except Exception as error:
@@ -109,23 +120,24 @@ def insertPageToDB(url, site_id, db_connection):
 
 
 # PUT PAGE - DUPLICATE
-def updatePageAsDuplicate(current_page, duplicate, db_connection):
+def updatePageAsDuplicate(current_page, status_code, duplicate, db_connection):
     duplicate_page = None
     page_type_code = "DUPLICATE"
-    html_content = "NULL"
     to_page = duplicate[0]
     from_page = current_page[0]
 
     cur = db_connection.cursor()
     try:
         sql_query = """ UPDATE crawldb.page
-                        SET page_type_code = %s, html_content = %s
+                        SET http_status_code = %s, page_type_code = %s, html_content = %s
                         WHERE id = %s 
                         RETURNING * """
-        cur.execute(sql_query, (page_type_code, html_content, from_page))
+        cur.execute(sql_query, (status_code, page_type_code,
+                                html_content, from_page))
         duplicate_page = cur.fetchone()
         sql_query = """ INSERT INTO crawldb.link
-                        (from_page, to_page) VALUES (%s, %s) """
+                        (from_page, to_page) VALUES (%s, %s) 
+                        RETURNING * """
         cur.execute(sql_query, (from_page, to_page))
         duplicate_link = cur.fetchone()
         db_connection.commit()
@@ -136,16 +148,15 @@ def updatePageAsDuplicate(current_page, duplicate, db_connection):
 
 # PUT PAGE - INACCESSIBLE
 def updatePageAsInaccessible(current_page, http_status_code, db_connection):
-    page_type_code = "HTML"
     html_content = "NULL"
 
     cur = db_connection.cursor()
     try:
         sql_query = """ UPDATE crawldb.page
-                        SET page_type_code = %s, html_content = %s, http_status_code = %s
+                        SET html_content = %s, http_status_code = %s
                         WHERE id = %s 
                         RETURNING * """
-        cur.execute(sql_query, (page_type_code, html_content,
+        cur.execute(sql_query, (html_content,
                                 http_status_code, current_page[0]))
         inaccessible_page = cur.fetchone()
         db_connection.commit()
@@ -154,23 +165,23 @@ def updatePageAsInaccessible(current_page, http_status_code, db_connection):
     return inaccessible_page
 
 
-# PUT PAGE - BINARY
-def updatePageAsBinary(current_page, db_connection):
-    binary_page = None
-    page_type_code = "BINARY"
+# PUT PAGE - HTML
+def updatePageAsHTML(current_page, http_status_code, html_content, hashed_content, db_connection):
+    html_page = None
 
     cur = db_connection.cursor()
     try:
         sql_query = """ UPDATE crawldb.page
-                        SET page_type_code = %s
+                        SET http_status_code = %s, page_hash=%s
                         WHERE id = %s 
                         RETURNING * """
-        cur.execute(sql_query, (page_type_code, current_page[0]))
-        binary_page = cur.fetchone()
+        cur.execute(sql_query, (
+            http_status_code, hashed_content, current_page[0]))
+        html_page = cur.fetchone()
         db_connection.commit()
     except Exception as error:
-        print("Updating page as binary in frontier led to", error)
-    return binary_page
+        print("Updating page as HTML in frontier led to", error)
+    return html_page
 
 
 # POST PAGE_DATA
@@ -192,11 +203,21 @@ def insertPageDataToDB(current_page, data_type, db_connection):
     return page_data
 
 
-# GET ROBOTS FILE FOR SPECIFIC PAGE
-def getRobotsFileContent(current_page, db_connection):
-    return 0
+# POST IMAGE
+def insertImageDataToDB(current_page, filename, content_type, db_connection):
+    now = datetime.now()
+    access_time = now.strftime("%Y-%m-%d %H:%M:%S'")
+    image = None
 
-
-# GET CRAWL DELAY FOR SPECIFIC PAGE
-def getCrawlDelayContent(current_page, db_connection):
-    return 0
+    cur = db_connection.cursor()
+    try:
+        sql_query = """ INSERT into crawldb.image (page_id, filename, content_type, accessed_time) 
+                        VALUES (%s, %s, %s, %s) 
+                        RETURNING * """
+        cur.execute(
+            sql_query, (current_page[0], filename, content_type, access_time))
+        image = cur.fetchone()
+        db_connection.commit()
+    except Exception as error:
+        print("Inserting image led to", error)
+    return image

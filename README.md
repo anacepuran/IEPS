@@ -21,3 +21,7 @@ The following project is the implementation of the multi threaded web crawler de
 
 **SELENIUM:**
 To enable selenium driver to work add its location to PATH?
+
+VPRAŠANJA ZA ASISTENTA:
+
+1. Kak je z 'Allow:\* ???

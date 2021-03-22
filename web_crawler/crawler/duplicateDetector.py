@@ -9,13 +9,25 @@ is no need to re-crawl the page, just add a record into to the table link accord
 '''
 
 
-def checkForDuplicateURL(url, param, db_connection):
+def checkForDuplicateFRONTIER(url, db_connection):
     cur = db_connection.cursor()
+    current_site_id = None
     try:
-        sql_query = "SELECT id FROM crawldb.page WHERE %s=%s"
-        cur.execute(sql_query, (param, url,))
+        sql_query = "SELECT id FROM crawldb.page WHERE url=%s"
+        cur.execute(sql_query, (url,))
         current_site_id = cur.fetchall()
-        print("Current site id: ", current_site_id)
+    except Exception as error:
+        print("Checking for URL duplicates led to", error)
+    return current_site_id
+
+
+def checkForDuplicateSEED(url, db_connection):
+    cur = db_connection.cursor()
+    current_site_id = None
+    try:
+        sql_query = "SELECT id FROM crawldb.site WHERE domain=%s"
+        cur.execute(sql_query, (url,))
+        current_site_id = cur.fetchall()
     except Exception as error:
         print("Checking for URL duplicates led to", error)
     return current_site_id

@@ -6,9 +6,8 @@ import crawler.duplicateDetector
 from crawler.URLfrontier import *
 import time
 
-# SEED_URLS = ['https://www.gov.si/assets/ministrstva/MDDSZ/druzina/Obrazec-S1-1.pdf']
-SEED_URLS = ['gov.si', 'evem.gov.si', 'e-uprava.gov.si', 'e-prostor.gov.si']
-DOMAIN = '.gov.si'
+#SEED_URLS = ['gov.si', 'evem.gov.si', 'e-uprava.gov.si', 'e-prostor.gov.si']
+SEED_URLS = ['e-prostor.gov.si']
 
 
 class current_thread(threading.Thread):
@@ -21,10 +20,13 @@ class current_thread(threading.Thread):
     def run(self):
         current_page = None
         while True:
+            time.sleep(5)
+            print("Sleeping for 5s!")
             current_page = getFirstFromFrontier(self.db_connection)
             if current_page is not None:
-                print(self.threadID)
-                processCurrentPage(current_page, DOMAIN, self.db_connection)
+                # edit multithreading to go breath first !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                print("Current page in FRONTIER: ", current_page[3])
+                processCurrentPage(current_page, self.db_connection)
             else:
                 break
         print(self.threadID, " finnished!")
@@ -53,5 +55,4 @@ def initiateCrawler(number_of_workers):
 if __name__ == '__main__':
     number_of_workers = int(sys.argv[1])
 
-    # run: python main.py <number_of_workers>
     initiateCrawler(number_of_workers)
