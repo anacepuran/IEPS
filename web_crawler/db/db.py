@@ -125,7 +125,7 @@ def insertPageToDB(url, site_id, db_connection):
 def updatePageAsDuplicate(site_id, status_code, duplicate, db_connection):
     duplicate_page = None
     page_type_code = "DUPLICATE"
-    first = duplicate[0]
+    duplicate = duplicate[0]
     html_content = "NULL"
     finnished = True
 
@@ -141,7 +141,7 @@ def updatePageAsDuplicate(site_id, status_code, duplicate, db_connection):
         sql_query = """ INSERT INTO crawldb.link
                         (from_page, to_page) VALUES (%s, %s)
                         RETURNING * """
-        cur.execute(sql_query, (first, site_id))
+        cur.execute(sql_query, (site_id, duplicate))
         duplicate_link = cur.fetchone()
         db_connection.commit()
     except Exception as error:
@@ -150,18 +150,16 @@ def updatePageAsDuplicate(site_id, status_code, duplicate, db_connection):
 
 
 # PUT PAGE - INACCESSIBLE
-def updatePageAsInaccessible(site_id, http_status_code, db_connection):
-    html_content = "NULL"
+def updatePageAsInaccessible(site_id, inaccessible, db_connection):
     finnished = True
 
     cur = db_connection.cursor()
     try:
         sql_query = """ UPDATE crawldb.page
-                        SET html_content = %s, http_status_code = %s, finnished = %s
+                        SET html_content = %s, finnished = %s
                         WHERE id = %s
                         RETURNING * """
-        cur.execute(sql_query, (html_content,
-                                http_status_code, finnished, site_id))
+        cur.execute(sql_query, (inaccessible, finnished, site_id))
         inaccessible_page = cur.fetchone()
         db_connection.commit()
     except Exception as error:
@@ -193,11 +191,21 @@ def updatePageAsHTML(current_page_id, http_status_code, html_content, hashed_con
 # GET PAGE STATUS - FINNISHED/NOT
 def getStatusFromPreviousPage(current_page_ID, db_connection):
     page_status = None
+    previous_page_ID = current_page_ID - 1
     cur = db_connection.cursor()
     try:
         sql_query = """ SELECT * FROM crawldb.page
                         WHERE id = %s"""
-        cur.execute(sql_query, (current_page_ID, ))
+        cur.execute(sql_query, (previous_page_ID, ))
+        page_status = cur.fetchone()[8]
+        db_connection.commit()
+    except TypeError as error:
+        print("First element in frontier!")
+        sql_query = """ UPDATE crawldb.page
+                        SET finnished=%s
+                        WHERE id = %s
+                        RETURNING * """
+        cur.execute(sql_query, (True, current_page_ID))
         page_status = cur.fetchone()[8]
         db_connection.commit()
     except Exception as error:

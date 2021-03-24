@@ -57,28 +57,24 @@ def processCurrentPage(current_page, db_connection):
                                       duplicate, db_connection)
     else:
         updatePageAsInaccessible(
-            current_page[0], 404, db_connection)
+            current_page[0], "INACCESSIBLE", db_connection)
 
 
 def getContent(url):
     soup = status_code = None
-    try:
-        time.sleep(8)
-        response = requests.get(url, timeout=10)
-        status_code = response.status_code
-    except Exception as e:
-        print("Getting status code led to", e)
-
     options = Options()
     options.headless = True
     options.add_argument('--ignore-certificate-errors')
     options.add_argument("--user-agent=fri-wier-norcii")
     try:
-        time.sleep(8)
+        time.sleep(5)
         driver = webdriver.Chrome(executable_path=os.path.abspath(
             "./crawler/webdriver/chromedriver.exe"), options=options)
-        driver.set_page_load_timeout(10)
+        driver.set_page_load_timeout(6)
         driver.get(url)
+        for request in driver.requests:
+            if request.response:
+                status_code = request.response.status_code
         html_content = driver.page_source
         driver.close()
         soup = BeautifulSoup(html_content, "html.parser")

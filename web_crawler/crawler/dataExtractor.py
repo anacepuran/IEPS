@@ -50,19 +50,19 @@ def fetchData(html_content, current_page, db_connection):
 
     # BREADTH-FIRST TECHNIQUE IMPLEMENTED --> WAITING FOR THE SITE WITH ID = ID-1 TO PUSH IT'S PAGES TO FRONTIER FIRST
     finnished = None
-    previous_page_ID = current_page_ID-1
     while finnished is None or finnished is False:
-        finnished = getStatusFromPreviousPage(previous_page_ID, db_connection)
+        finnished = getStatusFromPreviousPage(current_page_ID, db_connection)
 
     for el in all_new_pages:
         duplicate = checkForDuplicateFRONTIER(el[0], db_connection)
         if not duplicate:
             page_id = insertPageToDB(el[0], el[1], db_connection)
-            # insertLinkToDB(el[2], page_id, db_connection)
+            insertLinkToDB(el[2], page_id, db_connection)
     print("Successfully put all pages into frontier: ", current_page_url)
 
 
 def getImageLinks(disallowed_rules, link, current_page_url):
+    normalized_url = None
     if link.has_attr('src'):
         src = link['src']
         if src is not None and len(src) != 0:
@@ -105,6 +105,12 @@ def getNonImageLinks(link, value, disallowed_rules, current_page, all_new_pages,
                 return None
 
         url = urlparse(link_value)
+
+        # eliminate images
+        if checkForImage(url.path) is not None:
+            return None
+
+        # normalize the netloc extracted from url
         normalized_netloc = eliminateFromURL(url.netloc, EXTRAS)
 
         # CURRENT_PAGE_URL LINKS WITHOUT BASE IN URL
@@ -114,12 +120,8 @@ def getNonImageLinks(link, value, disallowed_rules, current_page, all_new_pages,
 
         # LINKS FROM OTHER SITE
         elif url.netloc and normalized_netloc not in current_page_url:
-            for seed in IGNORE_SEED_URLS:
-                if seed in url.netloc:
-                    return None
-            if url.netloc.startswith(IGNORE_DOMAIN_VARIATIONS):
-                return None
-
+            if normalized_netloc[0] == '.':
+                normalized_netloc = normalized_netloc[1:]
             # links from the other site from gov domain
             if DOMAIN in url.netloc:
                 handleOtherDomainPage(
@@ -182,9 +184,6 @@ def normalizeUrl(url, link_value):
             return None
 
     if url.query or url.fragment or url.scheme == "mailto" or url.scheme == "tel" or url.scheme == "data" or url.scheme == "javascript":
-        return None
-
-    if checkForImage(url.path) is not None:
         return None
 
     link_value = eliminateFromURL(link_value, EXTRAS)
