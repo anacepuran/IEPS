@@ -3,8 +3,8 @@ from urllib.request import urlopen
 import urllib.error
 import urllib.robotparser
 from socket import timeout
-
-USER_AGENT = "fri-wier-norci"
+import time
+from crawler.consts import *
 
 
 def getResponseRobots(seed):
@@ -14,19 +14,19 @@ def getResponseRobots(seed):
     delay = None
 
     try:
-        uClient = urlopen(robots_url, timeout=3)
+        time.sleep(5)
+        uClient = urlopen(robots_url, timeout=5)
         robots_page = uClient.read()
         uClient.close()
         soup = BeautifulSoup(robots_page, "html.parser")
         response_robots = str(soup)
     except Exception as e:
         print('Fetching robots.txt led to', e)
-    except timeout:
-        print("Fetching robots.txt led to timeout error", robots_url)
 
     if response_robots is not None:
         rp = urllib.robotparser.RobotFileParser()
         rp.set_url(robots_url)
+        time.sleep(5)
         rp.read()
 
         # check if robots are allowed

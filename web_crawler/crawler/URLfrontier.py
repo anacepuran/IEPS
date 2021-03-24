@@ -13,14 +13,9 @@ import os
 import requests
 import urllib.error
 from socket import timeout
+import sys
 
-'''
-The frontier strategy needs to follow the breadth-first strategy. In the report explain how is your strategy implemented.
-Check and respect the robots.txt file for each domain if it exists. 
-Correctly respect the commands User-agent, Allow, Disallow, Crawl-delay and Sitemap. 
-Make sure to respect robots.txt as sites that define special crawling rules often contain spider traps. 
-Also make sure that you follow ethics and do not send request to the same server more often than one request in 5 seconds (not only domain but also IP!).
-'''
+sys.setrecursionlimit(1500)
 
 
 def processSeedPages(seed_urls, db_connection):
@@ -29,13 +24,14 @@ def processSeedPages(seed_urls, db_connection):
             continue
 
         response_robots, sitemap, delay = getResponseRobots(seed)
-
-        site_id = insertSiteToDB(
-            seed, response_robots, sitemap, delay, db_connection)
-        page_id = insertPageToDB(seed, site_id, db_connection)
+        if response_robots != "NOT ALLOWED":
+            site_id = insertSiteToDB(
+                seed, response_robots, sitemap, delay, db_connection)
+            page_id = insertPageToDB(seed, site_id, db_connection)
 
 
 def processCurrentPage(current_page, db_connection):
+    html_content = status_code = None
     url = "http://" + current_page[3]
 
     html_content, status_code = getContent(url)
@@ -48,39 +44,41 @@ def processCurrentPage(current_page, db_connection):
 
         if status_code >= 400:
             updatePageAsInaccessible(
-                current_page, status_code, db_connection)
+                current_page[0], status_code, db_connection)
             print("Inaccessible: ", status_code, url)
         else:
             if not duplicate:
                 fetchData(html_content, current_page, db_connection)
-                updatePageAsHTML(current_page, status_code,
+                updatePageAsHTML(current_page[0], status_code,
                                  pretty_content, hashed_content, db_connection)
             else:
-                updatePageAsDuplicate(current_page, status_code,
+                print("Duplicate", current_page[3], duplicate[0])
+                updatePageAsDuplicate(current_page[0], status_code,
                                       duplicate, db_connection)
-    # elif status_code is None: delete url from page and site
+    else:
+        updatePageAsInaccessible(
+            current_page[0], 404, db_connection)
 
 
 def getContent(url):
     soup = status_code = None
     try:
-        response = requests.get(url)
+        time.sleep(8)
+        response = requests.get(url, timeout=10)
         status_code = response.status_code
-        time.sleep(5)
     except Exception as e:
         print("Getting status code led to", e)
 
     options = Options()
     options.headless = True
     options.add_argument('--ignore-certificate-errors')
-    options.add_argument("--user-agent=fri-wier-norci")
-
+    options.add_argument("--user-agent=fri-wier-norcii")
     try:
+        time.sleep(8)
         driver = webdriver.Chrome(executable_path=os.path.abspath(
             "./crawler/webdriver/chromedriver.exe"), options=options)
-        driver.get(url)
         driver.set_page_load_timeout(10)
-        driver.implicitly_wait(4)
+        driver.get(url)
         html_content = driver.page_source
         driver.close()
         soup = BeautifulSoup(html_content, "html.parser")
