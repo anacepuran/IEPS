@@ -3,7 +3,7 @@ DOMAIN = '.gov.si'
 DB_ = {
     'host': 'localhost',
     'port': '5432',
-    'db_name': 'spider',
+    'db_name': 'crawl',
     'username': 'postgres',
     'password': 'postgres'
 }

@@ -9,6 +9,7 @@ from crawler.consts import *
 
 
 def fetchData(html_content, current_page, db_connection):
+    link_a = None
     images = binary = urls = disallowed_rules = []
     all_new_pages = []
     current_page_ID = current_page[0]
@@ -25,6 +26,7 @@ def fetchData(html_content, current_page, db_connection):
         robots_file = seed_site_data[2]
         if robots_file is not None:
             disallowed_rules = getDisallowedFromRobotsFile(robots_file)
+            allowed_rules = getAllowedFromRobotsFile(robots_file)
 
     # GET IMG LINKS
     for link in html_content.find_all("img"):
@@ -33,12 +35,15 @@ def fetchData(html_content, current_page, db_connection):
             insertImageData(image_url, current_page_ID, db_connection)
 
     # GET HREF LINKS
-    for link in html_content.find_all(href=True):
-        href_url = getNonImageLinks(
-            link, "href", disallowed_rules, current_page, all_new_pages, db_connection)
-        if href_url is not None:
-            handleNonImageSite(
-                href_url, current_page_ID, current_page_seed, all_new_pages, db_connection)
+    link_a = html_content.find_all("a")
+    if link_a is not None:
+        for link in link_a:
+            if link.has_attr('href'):
+                href_url = getNonImageLinks(
+                    link, "href", disallowed_rules, current_page, all_new_pages, db_connection)
+                if href_url is not None:
+                    handleNonImageSite(
+                        href_url, current_page_ID, current_page_seed, all_new_pages, db_connection)
 
     # GET ONCLICK LINKS
     for link in html_content.find_all(onclick=True):
@@ -106,7 +111,7 @@ def getNonImageLinks(link, value, disallowed_rules, current_page, all_new_pages,
 
         url = urlparse(link_value)
 
-        # eliminate images
+        # eliminate images passed as href
         if checkForImage(url.path) is not None:
             return None
 
@@ -132,8 +137,7 @@ def getNonImageLinks(link, value, disallowed_rules, current_page, all_new_pages,
         else:
             normalized_url = normalizeUrl(url, link_value)
 
-        return normalized_url
-    return None
+    return normalized_url
 
 
 def handleNonImageSite(url, site_id, seed_site_id, all_new_pages, db_connection):
@@ -162,7 +166,7 @@ def handleOtherDomainPage(url, current_page_id, link_value, all_new_pages, db_co
             print("New page from other domain: ",
                   normalized_netloc, normalized_url)
             response_robots, sitemap, delay = getResponseRobots(
-                normalized_netloc)
+                normalized_netloc, db_connection)
             if response_robots != "NOT ALLOWED":
                 seed_site_id = insertSiteToDB(normalized_netloc, response_robots,
                                               sitemap, delay, db_connection)

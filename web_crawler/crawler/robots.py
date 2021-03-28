@@ -5,9 +5,10 @@ import urllib.robotparser
 from socket import timeout
 import time
 from crawler.consts import *
+from db.db import *
 
 
-def getResponseRobots(seed):
+def getResponseRobots(seed, db_connection):
     robots_url = 'http://' + seed + '/robots.txt'
     sitemap = response_robots = delay = None
 
@@ -28,6 +29,8 @@ def getResponseRobots(seed):
         # check if robots are allowed
         url = "http://" + seed
         if not rp.can_fetch(USER_AGENT, url):
+            insertSiteToDB(
+                seed, response_robots, sitemap, delay, db_connection)
             print("Robots are not allowed on: ", seed)
             return "NOT ALLOWED", 0, 0
         delay = rp.crawl_delay(USER_AGENT)
@@ -44,7 +47,9 @@ def getDisallowedFromRobotsFile(robots_file):
     robots_file = robots_file.split("\n")
     for line in robots_file:
         if "Disallow:" in line:
-            disallowed.append(line.split(" ")[1])
+            split = line.split(" ")
+            if len(split) > 1:
+                disallowed.append(line.split(" ")[1])
     return disallowed
 
 
@@ -53,5 +58,7 @@ def getAllowedFromRobotsFile(robots_file):
     robots_file = robots_file.split("\n")
     for line in robots_file:
         if "Allow:" in line:
-            allowed.append(line.split(" ")[1])
+            split = line.split(" ")
+            if len(split) > 1:
+                allowed.append(line.split(" ")[1])
     return allowed

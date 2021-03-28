@@ -2,22 +2,24 @@
 
 The following project is the implementation of the multi threaded web crawler developed in Python.
 
-**POSTGRESQL SETUP:**
+**DOCKER SETUP:**
 
-1. Install postgresql (in the process you will be prompted to choose the password - I recommend "postgres")
-2. Open SQL shell
-3. Login with default values (port, host, name, ...) and enter the password chosen in the installation process (postgres)
-4. Run the following commands: <br/>
-   **CREATE DATABASE spider;** ... which creates the db <br/>
-   **\c spider** ... which connects to the db <br/>
-   **\i 'path to the crawldb.sql file downloaded from moodle'** ... which runs the script and initiates the db values
-5. Now your local db should be set. Open the pgAdmin 4 web app (which was also installed with the shell and postgresql) and check whether the database was initiated correctly. Under schemas there should be one named crawldb!
+1. Download docker
+2. Create folder docker with subfolder init-script which contains the crawldb.sql file
+3. Run command in cmd (Windows):
+   docker run --name postgresql-wier \
+    -e POSTGRES_PASSWORD=password \
+    -e POSTGRES_USER=user \
+    -e POSTGRES_DB=crawler
+   -v %cd%/pgdata:/var/lib/postgresql/data \
+    -v %cd%/init-scripts:/docker-entrypoint-initdb.d \
+    -p 5432:5432 \
+    -d postgres:12.2
+4. You can check container's logs with: docker logs -f postgresql-wier
+5. Log into database and execute SQL statements: docker exec -it postgresql-wier psql -U postgres
 
 **RUN PROJECT:**
 
 1. **cd web_crawler**
-1. **.\env\Scripts\activate** (pip install virtualenv if you don't have it)
+1. **.\env\Scripts\activate** (pip install virtualenv)
 1. **python main.py "number of workers"**
-
-**SELENIUM:**
-To enable selenium driver to work add its location to PATH?

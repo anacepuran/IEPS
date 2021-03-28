@@ -11,8 +11,8 @@ db_pool = None
 def initiateConnectionToDatabase(seed_urls):
     # initiate connection
     try:
-        db_pool = pool.ThreadedConnectionPool(3, 10, user=DB_['username'], password=DB_['password'],
-                                              host=DB_['host'], port=DB_['port'], database=DB_['db_name'])
+        db_pool = pool.ThreadedConnectionPool(3, 10, user=DB_['username'], password=DB_['password'], database=DB_['db_name'],
+                                              host=DB_['host'], port=DB_['port'])
         if db_pool:
             print('PostgreSQL connection pool is succesfully created!')
         else:
@@ -171,16 +171,15 @@ def updatePageAsInaccessible(site_id, inaccessible, db_connection):
 def updatePageAsHTML(current_page_id, http_status_code, html_content, hashed_content, db_connection):
     html_page = None
     finnished = True
-    # UPDATE TO ADD HTML !!!!!!!!!!!!!!!!!!!!!
 
     cur = db_connection.cursor()
     try:
         sql_query = """ UPDATE crawldb.page
-                        SET http_status_code = %s, page_hash=%s, finnished=%s
+                        SET http_status_code = %s, page_hash=%s, finnished=%s, html_content=%s
                         WHERE id = %s
                         RETURNING * """
         cur.execute(sql_query, (
-            http_status_code, hashed_content, finnished, current_page_id))
+            http_status_code, hashed_content, finnished, html_content, current_page_id))
         html_page = cur.fetchone()
         db_connection.commit()
     except Exception as error:
