@@ -5,7 +5,7 @@ The following project is the implementation of the multi threaded web crawler de
 **DOCKER SETUP:**
 
 1. Download docker
-2. Create folder docker with subfolder init-script which contains the crawldb.sql file
+2. Create folder docker with subfolder init-scripts which contains the crawldb.sql file from moodle
 3. Run command in cmd (Windows):
    docker run --name postgresql-wier \
     -e POSTGRES_PASSWORD=password \
@@ -16,7 +16,7 @@ The following project is the implementation of the multi threaded web crawler de
     -p 5432:5432 \
     -d postgres:12.2
 4. You can check container's logs with: docker logs -f postgresql-wier
-5. Log into database and execute SQL statements: docker exec -it postgresql-wier psql -U postgres
+5. To log into database and execute SQL statements: docker exec -it postgresql-wier psql -U postgres
 
 **RUN PROJECT:**
 
