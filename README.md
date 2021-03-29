@@ -10,8 +10,8 @@ The following project is the implementation of the multi threaded web crawler de
    docker run --name postgresql-iepss \
     -e POSTGRES_PASSWORD=postgres \
     -e POSTGRES_USER=postgres \
-    -e POSTGRES_DB=crawl
-   -v %cd%/pgdata:/var/lib/postgresql/data \
+    -e POSTGRES_DB=crawl \
+    -v %cd%/pgdata:/var/lib/postgresql/data \
     -v %cd%/init-scripts:/docker-entrypoint-initdb.d \
     -p 5432:5432 \
     -d postgres:12.2
