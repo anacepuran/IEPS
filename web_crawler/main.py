@@ -8,6 +8,10 @@ import time
 from crawler.consts import *
 
 lock = threading.Lock()
+options = Options()
+options.headless = True
+options.add_argument('--ignore-certificate-errors')
+options.add_argument("--user-agent=fri-wier-norci")
 
 
 class current_thread(threading.Thread):
@@ -18,14 +22,25 @@ class current_thread(threading.Thread):
         print(f"Web Crawler worker {self.threadID} has Started")
 
     def run(self):
+        try:
+            driver = webdriver.Chrome(executable_path=os.path.abspath(
+                "./crawler/webdriver/chromedriver.exe"), options=options)
+            driver.set_page_load_timeout(6)
+        except Exception as error:
+            print("Running Selenium led to", error)
+            print("Crawler worker ID: ", self.threadID)
+            break
+
         current_page = None
         while True:
             with lock:
                 current_page = getFirstFromFrontier(self.db_connection)
                 if current_page is not None:
                     print("Current page in FRONTIER: ", current_page[3])
-                    processCurrentPage(current_page, self.db_connection)
+                    processCurrentPage(
+                        current_page, self.db_connection, driver)
                 else:
+                    driver.close()
                     break
         print(self.threadID, " worker finnished!")
 

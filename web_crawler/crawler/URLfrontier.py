@@ -31,11 +31,11 @@ def processSeedPages(seed_urls, db_connection):
             page_id = insertPageToDB(seed, site_id, db_connection)
 
 
-def processCurrentPage(current_page, db_connection):
+def processCurrentPage(current_page, db_connection, driver):
     html_content = status_code = None
     url = "http://" + current_page[3]
 
-    html_content, status_code = getContent(url)
+    html_content, status_code = getContent(url, driver)
     if html_content is not None and status_code is not None:
         pretty_content = html_content.prettify()
         hashed_content = hashlib.md5(
@@ -62,7 +62,7 @@ def processCurrentPage(current_page, db_connection):
             current_page[0], "INACCESSIBLE", db_connection)
 
 
-def getContent(url):
+def getContent(url, driver):
     soup = status_code = None
     try:
         time.sleep(5)
@@ -73,21 +73,12 @@ def getContent(url):
         print("Getting status code led to", e)
         return soup, status_code
 
-    soup = None
-    options = Options()
-    options.headless = True
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument("--user-agent=fri-wier-norci")
     try:
         time.sleep(5)
-        driver = webdriver.Chrome(executable_path=os.path.abspath(
-            "./crawler/webdriver/chromedriver.exe"), options=options)
-        driver.set_page_load_timeout(6)
         driver.get(url)
         html_content = driver.page_source
-        driver.close()
         soup = BeautifulSoup(html_content, "html.parser")
     except Exception as error:
-        print("Running Selenium led to", error)
+        print("Fetching page with Selenium led to", error)
 
     return soup, status_code
