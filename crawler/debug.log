@@ -26842,3 +26842,156 @@
 [0329/125216.433:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
 [0329/125216.440:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
 [0329/125226.531:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/125704.386:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/125704.393:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/125707.256:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/125707.264:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/125708.897:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/125708.902:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/144145.808:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/144153.429:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/144203.505:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/144656.616:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/144656.646:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/144656.796:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/144656.803:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/144656.831:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/144656.838:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/150912.100:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/150912.103:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/150912.106:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/150954.164:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/150954.171:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/150954.298:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/150954.305:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/150954.313:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/150954.322:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/151417.943:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/151417.949:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/151417.992:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/151418.004:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/151418.051:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/151418.057:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/151503.295:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/151503.298:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/151503.302:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/151549.447:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/151549.454:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/151549.471:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/151549.477:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/151549.762:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/151549.769:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/170855.459:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/170855.495:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/170855.532:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/172924.716:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/172924.725:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/172924.729:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/172924.737:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/172924.778:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/172924.786:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173005.299:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/173005.303:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/173005.311:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/173055.147:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173055.155:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173055.331:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173055.339:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173056.853:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173056.859:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173245.056:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173245.063:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173245.166:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173245.173:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173246.474:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173246.481:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173337.445:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/173348.962:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/173348.988:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/173412.009:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173412.018:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173412.139:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173412.146:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173414.806:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173414.813:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173536.413:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/173548.753:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/173548.753:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/173603.727:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173603.736:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173603.735:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173603.743:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/173605.946:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/173605.956:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/174126.863:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/174139.874:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/174139.878:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/180203.942:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180203.977:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180204.060:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180204.070:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180204.088:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180204.097:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180628.536:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180628.545:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180628.799:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180628.807:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180629.070:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180629.077:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180820.136:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180820.146:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180820.575:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180820.582:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180821.718:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180821.726:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180915.876:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180915.890:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180917.616:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180917.624:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/180919.415:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/180919.422:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/181251.920:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/181303.833:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/181303.837:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/181349.371:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/181349.379:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/181349.533:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/181349.541:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/181349.710:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/181349.717:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/191301.876:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/191301.921:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/191301.966:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/192110.214:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/192110.221:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/192110.413:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/192110.421:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/192110.536:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/192110.544:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/193954.289:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/193954.296:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/193954.786:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/193954.793:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/193954.997:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/193955.007:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/213236.646:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/213239.353:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/213239.379:ERROR:crashpad_client_win.cc(131)] crash server failed to launch, self-terminating
+[0329/213501.793:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/213501.801:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/213501.896:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/213501.904:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/213501.993:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/213502.000:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/213819.948:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/213819.956:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/213822.320:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/213822.327:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0329/213824.518:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0329/213824.524:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0330/081732.639:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0330/081732.646:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0330/081732.684:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0330/081732.694:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)
+[0330/081732.809:ERROR:registration_protocol_win.cc(130)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[0330/081732.817:ERROR:file_io_win.cc(180)] CreateFile C:\Program Files (x86)\Junemike\Reports\Dump\settings.dat: Access is denied. (0x5)

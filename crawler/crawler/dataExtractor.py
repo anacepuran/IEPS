@@ -118,7 +118,7 @@ def getNonImageLinks(link, value, disallowed_rules, current_page, all_new_pages,
         # normalize the netloc extracted from url
         normalized_netloc = eliminateFromURL(url.netloc, EXTRAS)
 
-        # CURRENT_PAGE_URL LINKS WITHOUT BASE IN URL
+        # CURRENT_PAGE_URL LINKS WITHOUT BASE IN URLq
         if not url.netloc and current_page_url not in link_value:
             link = urljoin("http://" + current_page_url, link_value)
             normalized_url = normalizeUrl(url, link)

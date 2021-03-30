@@ -13,6 +13,6 @@ BINARY_CONTENT = [".pdf", ".doc", ".docx", ".ppt", ".pptx"]
 IMAGE_CONTENT = [".png", ".jpg", ".jpeg", ".gif"]
 PATH_EXCLUSIONS = ["favicon.ico", "data:image", "base64",
                    "maps.googleapis.", "maps.gstatic", "fonts.googleapis.", "getElementById",
-                   ".css", ".zip", ".csv", ".xlsx", ".xls", ".PPT", ".mp4"]
+                   ".css", ".zip", ".csv", ".xlsx", ".xls", ".PPT", ".mp4", ".rar"]
 EXTRAS = ["https://www.", "http://www.",
           "https://", "http://", ".html", "www.", "www"]

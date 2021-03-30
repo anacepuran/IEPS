@@ -1,0 +1,89 @@
+1617085323724	geckodriver	INFO	Listening on 127.0.0.1:64185
+1617085326748	mozrunner::runner	INFO	Running command: "C:\\P1617085328415	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\nezab\\AppData\\Local\\Temp\\ruconsole.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings file1617085335138	Marionette	INFO	Listening on port 64204
+1617085336067	Marionette	WARN	TLS certificate errors will be1617085336654	Marionette	WARN	TLS certificate errors will be ignorconsole.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+161console.log: WebExtensions: reset-default-search: No addons console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1166	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:64209","noProxy":[],"sslProxy":"127.0.0.1:64209"}
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+1617094078743	geckodriver	INFO	Listening on 127.0.0.1:52803
+1617094081685	mozrunner::runner	INFO	Running command: "C:\\P1617094082464	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--user-agent=fri-wier-norci" "-foreground" "-no-remote" "-profile" "C:\*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings fileconsole.error: Region.jsm: "Error fetching region" (new Erroconsole.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 419))
+1617094104774	Marionette	INFO	Listening on port 52834
+1617094104903	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617094104905	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"1console.log: WebExtensions: reset-default-search: No addons console.log: WebExtensions: Exiting due to channel error.
+ in our list are installed.
+1617100172864	geckodriver	INFO	Listening on 127.0.0.1:56520
+1617100175842	mozrunner::runner	INFO	Running command: "C:\\P1617100176631	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--user-agent=fri-wier-norci" "-foreground" "-no-remote" "-profile" "C:\*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings fileconsole.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 772))1617100193385	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617100193387	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpPro161710console.log: WebExtensions: reset-default-search: No addons console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+pe":"manual","httpProxy":"127.0.0.1:56517","noProxy":[],"sslProxy":"127.0.0.1:56517"}
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+0	Marionette	INFO	Listening on port 57338
+1617101169860	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617101169862	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:57317","noProxy":[],"sslProxy":"127.0.0.1:57317"}
+1617101672909	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Exiting due to channel error.
+r	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--user-agent=fri-wier-norci" "-foreground" "-no-remote" "-profile" "C:\\Users\\nezab\\AppData\\Local\\Temp\\ruconsole.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings file1617101412477	Marionette	INFO	Listening on port 57674
+161711617101414500	Marionette	INFO	Listening on port 57688
+1617101415071	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617101415073	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"11617101919773	addons.xpi	ERROR	System addon update list erro1617101922413	addons.xpi	ERROR	System addon update list errExiting due to channel error.
+L, status: 0, reason: error
+P1617101776055	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--user-agent=fri-wier-norci" "-foreground" "-no-remote" "-profile" "C:\\Users\\nezab\\AppData\\Local\\Temp\\ruconsole.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617101787427	Marionette	INFO	Listening on port 58248
+1617101787583	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617101787585	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"11617102290449	addons.xpi	ERROR	System addon update list erro1617102293323	addons.xpi	ERROR	System addon update list errExiting due to channel error.
+L, status: 0, reason: error
+Exiting due to channel error.
+r	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--user-agent=fri-wier-norci" "-foreground" "-no-remote" "-profile" "C:\\Users\\nezab\\AppData\\Local\\Temp\\ruconsole.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)161711617101968815	Marionette	INFO	Listening on port 58585
+1617101969096	Marionette	WARN	TLS certificate errors will be ignored for this session
+161710196console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Errorconsole.log: WebExtensions: reset-default-search: No addons console.log: WebExtensions: Exiting due to channel error.
+ in our list are installed.
+ed for this session
+1617101973114	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:58576","noProxy":[],"sslProxy":"127.0.0.1:58576"}
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 350: ReferenceError: moment is not defined
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 275: TypeError: $(...).fancybox is not a function
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 350: ReferenceError: moment is not defined
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 275: TypeError: $(...).fancybox is not a function
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 350: ReferenceError: moment is not defined
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 275: TypeError: $(...).fancybox is not a function
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 275: TypeError: $(...).fancybox is not a function
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 350: ReferenceError: moment is not defined
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 350: ReferenceError: moment is not defined
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 275: TypeError: $(...).fancybox is not a function
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 275: TypeError: $(...).fancybox is not a function
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 350: ReferenceError: moment is not defined
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 275: TypeError: $(...).fancybox is not a function
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 350: ReferenceError: moment is not defined
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 275: TypeError: $(...).fancybox is not a function
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 350: ReferenceError: moment is not defined
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 350: ReferenceError: moment is not defined
+JavaScript error: https://www.stopbirokraciji.gov.si/js/main.js?1566479405, line 275: TypeError: $(...).fancybox is not a function
+1617103092452	geckodriver	INFO	Listening on 127.0.0.1:59646
+1617103095455	mozrunner::runner	INFO	Running command: "C:\\P1617103097266	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--user-agent=fri-wier-norci" "-foreground" "-no-remote" "-profile" "C:\\Users\\nezab\\AppData\\Local\\Temp\\ruconsole.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings file1617103103571	Marionette	INFO	Listening on port 59662
+161711617103105074	Marionette	INFO	Listening on port 59679
+1617103105483	Marionette	WARN	TLS certificate errors will be ignored for this session
+161710310console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error1617103612463	addons.xpi	ERROR	System addon update list erro1617103613327	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+393	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:59666","noProxy":[],"sslProxy":"127.0.0.1:59666"}
+JavaScript error: https://rkg.gov.si/vstop/js/jquery.cookie.js, line 14: ReferenceError: jQuery is not defined
+JavaScript error: https://rkg.gov.si/vstop/, line 20: ReferenceError: jQuery is not defined
+JavaScript warning: http://www.djn.mju.gov.si/resources_core/js/nyromodal/js/jquery.nyroModal.min.js?t=1, line 11: unreachable code after return statement
+1617103617264	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+Exiting due to channel error.
+r	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--user-agent=fri-wier-norci" "-foreground" "-no-remote" "-profile" "C:\\Users\\nezab\\AppData\\Local\\Temp\\ruconsole.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings fileconsole.error: Region.jsm: "Error fetching region" (new Erro1617103575115	Marionette	INFO	Listening on port 60808
+1617103575604	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617103575608	Marionette	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"127.0.0.1:60783","noProxy":[],"sslProxy":"127.0.0.1:60783"}
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+pe":"manual","httpProxy":"127.0.0.1:60776","noProxy":[],"sslProxy":"127.0.0.1:60776"}
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+console.log: WebExtensions: reset-default-search: No addons in our list are installed.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+1617131916418	geckodriver	INFO	Listening on 127.0.0.1:61202
+1617131919449	mozrunner::runner	INFO	Running command: "C:\\P1617131920921	mozrunner::runner	INFO	Running command: "C:\\P1617131921933	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--user-agent=fri-wier-norci" "-foreground" "-no-reconsole.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings file16171319console.warn: SearchSettings: "get: No settings file1617131926234	Marionette	INFO	Listening on port 61235
+161711617131928560	Marionette	INFO	Listening on port 61244
+1617131929046	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617131929049	Marionette	INFO	Prox1617132435100	addons.xpi	ERROR	System addon update list erro1617132436414	addons.xpi	ERROR	System addon update list erro1617132437885	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error

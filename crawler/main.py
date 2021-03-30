@@ -6,12 +6,9 @@ import crawler.duplicateDetector
 from crawler.URLfrontier import *
 import time
 from crawler.consts import *
+from selenium.webdriver.firefox.options import Options
 
 lock = threading.Lock()
-options = Options()
-options.headless = True
-options.add_argument('--ignore-certificate-errors')
-options.add_argument("--user-agent=fri-wier-norci")
 
 
 class current_thread(threading.Thread):
@@ -23,20 +20,23 @@ class current_thread(threading.Thread):
 
     def run(self):
         try:
-            driver = webdriver.Chrome(executable_path=os.path.abspath(
-                "./crawler/webdriver/chromedriver.exe"), options=options)
+            options = Options()
+            options.headless = True
+            options.add_argument("--user-agent=fri-wier-norci")
+            driver = webdriver.Firefox(executable_path=os.path.abspath(
+                "./crawler/webdriver/geckodriver.exe"), options=options)
             driver.set_page_load_timeout(6)
         except Exception as error:
             print("Running Selenium led to", error)
             print("Crawler worker ID: ", self.threadID)
-            break
 
         current_page = None
         while True:
             with lock:
                 current_page = getFirstFromFrontier(self.db_connection)
                 if current_page is not None:
-                    print("Current page in FRONTIER: ", current_page[3])
+                    print("Current page in FRONTIER: ",
+                          current_page[3])
                     processCurrentPage(
                         current_page, self.db_connection, driver)
                 else:

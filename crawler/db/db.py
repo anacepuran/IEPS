@@ -104,16 +104,15 @@ def getFirstFromFrontier(db_connection):
 # POST PAGE
 def insertPageToDB(url, site_id, db_connection):
     page_id = None
-    page_type_code = "HTML"
     finnished = False
 
     cur = db_connection.cursor()
     with lock:
         try:
-            sql_query = """ INSERT into crawldb.page (site_id, url, page_type_code, finnished)
-                            VALUES (%s, %s, %s, %s)
+            sql_query = """ INSERT into crawldb.page (site_id, url, finnished)
+                            VALUES (%s, %s, %s)
                             RETURNING id """
-            cur.execute(sql_query, (site_id, url, page_type_code, finnished))
+            cur.execute(sql_query, (site_id, url, finnished))
             page_id = cur.fetchone()[0]
             db_connection.commit()
         except Exception as error:
@@ -150,16 +149,19 @@ def updatePageAsDuplicate(site_id, status_code, duplicate, db_connection):
 
 
 # PUT PAGE - INACCESSIBLE
-def updatePageAsInaccessible(site_id, inaccessible, db_connection):
+def updatePageAsInaccessible(site_id, status_code, page_type_code, db_connection):
     finnished = True
+    inaccessible_page = None
+    inaccessible = "INACCESSIBLE"
 
     cur = db_connection.cursor()
     try:
         sql_query = """ UPDATE crawldb.page
-                        SET html_content = %s, finnished = %s
+                        SET html_content = %s, http_status_code = %s, finnished = %s, page_type_code=%s
                         WHERE id = %s
                         RETURNING * """
-        cur.execute(sql_query, (inaccessible, finnished, site_id))
+        cur.execute(sql_query, (inaccessible, status_code,
+                                finnished, page_type_code, site_id))
         inaccessible_page = cur.fetchone()
         db_connection.commit()
     except Exception as error:
@@ -171,15 +173,16 @@ def updatePageAsInaccessible(site_id, inaccessible, db_connection):
 def updatePageAsHTML(current_page_id, http_status_code, html_content, hashed_content, db_connection):
     html_page = None
     finnished = True
+    page_type_code = "HTML"
 
     cur = db_connection.cursor()
     try:
         sql_query = """ UPDATE crawldb.page
-                        SET http_status_code = %s, page_hash=%s, finnished=%s, html_content=%s
+                        SET http_status_code = %s, page_hash=%s, finnished=%s, html_content=%s, page_type_code=%s
                         WHERE id = %s
                         RETURNING * """
         cur.execute(sql_query, (
-            http_status_code, hashed_content, finnished, html_content, current_page_id))
+            http_status_code, hashed_content, finnished, html_content, page_type_code, current_page_id))
         html_page = cur.fetchone()
         db_connection.commit()
     except Exception as error:
@@ -210,6 +213,26 @@ def getStatusFromPreviousPage(current_page_ID, db_connection):
     except Exception as error:
         print("Getting status led to: ", error)
     return page_status
+
+
+# PAGE IS NOT HTML
+def updatePageAsNotHTML(current_page_ID, status_code, db_connection):
+    page = None
+    finnished = True
+
+    cur = db_connection.cursor()
+    try:
+        sql_query = """ UPDATE crawldb.page
+                        SET http_status_code = %s, finnished=%s, html_content=%s
+                        WHERE id = %s
+                        RETURNING * """
+        cur.execute(sql_query, (
+            status_code, finnished, None, current_page_ID))
+        page = cur.fetchone()
+        db_connection.commit()
+    except Exception as error:
+        print("Updating page as not HTML in frontier led to", error)
+    return page
 
 
 # POST LINK
