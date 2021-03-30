@@ -23,5 +23,3 @@ The following project is the implementation of the multi threaded web crawler de
 1. **cd crawler**
 1. **.\env\Scripts\activate** (pip install virtualenv)
 1. **python main.py "number of workers"**
-
-**LINK TO DB:** https://we.tl/t-xpl1x5z0Z5
