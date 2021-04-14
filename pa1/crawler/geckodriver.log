@@ -86,4 +86,6 @@ console.log: WebExtensions: reset-default-search: No addons in our list are inst
 1617131919449	mozrunner::runner	INFO	Running command: "C:\\P1617131920921	mozrunner::runner	INFO	Running command: "C:\\P1617131921933	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "--user-agent=fri-wier-norci" "-foreground" "-no-reconsole.warn: SearchSettings: "get: No settings file exists,console.warn: SearchSettings: "get: No settings file16171319console.warn: SearchSettings: "get: No settings file1617131926234	Marionette	INFO	Listening on port 61235
 161711617131928560	Marionette	INFO	Listening on port 61244
 1617131929046	Marionette	WARN	TLS certificate errors will be ignored for this session
-1617131929049	Marionette	INFO	Prox1617132435100	addons.xpi	ERROR	System addon update list erro1617132436414	addons.xpi	ERROR	System addon update list erro1617132437885	addons.xpi	ERROR	System addon update list error Error: Failed downloading XML, status: 0, reason: error
+1617131929049	Marionette	INFO	Prox1617132435100	addons.xpi	ERROR	System addon update list erro1617132436414	addons.xpi	ERROR	System addon update list errExiting due to channel error.
+Exiting due to channel error.
+ Error: Failed downloading XML, status: 0, reason: error
