@@ -97,3 +97,118 @@ def xpath_rtvslo(files):
         }
 
         print(data)
+
+
+def xpath_avtonet(files):
+
+    for file in files:
+
+        # print("Please wait, there are many results on the page.")
+
+        dom = etree.HTML(file)
+
+        data = []
+
+        i = 2
+
+        title_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/div[1]/span/text()"
+        price_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/div[6]/div[1]/div[1]/div/text()"
+        link_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/a/@href"
+
+        counter = 0
+
+        while counter < 3:
+
+            item_title = dom.xpath(title_xpath)
+
+            if not item_title:
+                counter += 1
+                pass
+
+            else:
+                item_link = dom.xpath(link_xpath)
+                item_price = dom.xpath(price_xpath)
+
+                item_first_registration = item_kilometers = item_fuel = item_gearbox = item_engine = ""
+
+                if not item_price:
+                    new_price_xpath_1 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[7]/div[1]/div[2]/div[2]/text()"
+                    new_price_xpath_2 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[6]/div[1]/div[2]/div[2]/text()"
+                    new_price_xpath_3 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[7]/div[1]/div[1]/div/text()"
+                    new_price_xpath_4 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[4]/div[3]/div[2]/div[1]/div/text()"
+                    if dom.xpath(new_price_xpath_1):
+                        item_price = dom.xpath(new_price_xpath_1)
+                    elif dom.xpath(new_price_xpath_2):
+                        item_price = dom.xpath(new_price_xpath_2)
+                    elif dom.xpath(new_price_xpath_3):
+                        item_price = dom.xpath(new_price_xpath_3)
+                    elif dom.xpath(new_price_xpath_4):
+                        item_price = dom.xpath(new_price_xpath_4)
+
+                j = 1
+
+                item_data_field_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/div[4]/div[1]/div[1]/table/tbody/tr[" + str(j) + "]/td[1]/text()"
+                if dom.xpath(item_data_field_xpath):
+                    item_data_xpath = "//*[@id=\"results\"]/div[" + str(
+                        i) + "]/div[4]/div[1]/div[1]/table/tbody/tr[" + str(
+                        j) + "]/td[2]/text()"
+                else:
+                    item_data_field_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/div[4]/div/table/tbody/tr[" + str(
+                        j) + "]/td[1]/text()"
+                    item_data_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/div[4]/div/table/tbody/tr[" + str(j) + "]/td[2]/text()"
+
+                item_data_field = dom.xpath(item_data_field_xpath)
+
+                while item_data_field:
+
+                    item_data_field = dom.xpath(item_data_field_xpath)
+
+                    if item_data_field:
+                        if item_data_field[0] == '1.registracija' or item_data_field[0] == 'Starost':
+                            item_first_registration = dom.xpath(item_data_xpath)
+                        elif item_data_field[0] == 'Prevoženih':
+                            item_kilometers = dom.xpath(item_data_xpath)
+                        elif item_data_field[0] == 'Gorivo':
+                            item_fuel = dom.xpath(item_data_xpath)
+                        elif item_data_field[0] == 'Menjalnik':
+                            item_gearbox = dom.xpath(item_data_xpath)
+                        elif item_data_field[0] == 'Motor':
+                            item_engine = dom.xpath(item_data_xpath)
+
+                    j += 1
+
+                    item_data_field_xpath = "//*[@id=\"results\"]/div[" + str(
+                        i) + "]/div[4]/div[1]/div[1]/table/tbody/tr[" + str(j) + "]/td[1]/text()"
+                    if dom.xpath(item_data_field_xpath):
+                        item_data_xpath = "//*[@id=\"results\"]/div[" + str(
+                            i) + "]/div[4]/div[1]/div[1]/table/tbody/tr[" + str(
+                            j) + "]/td[2]/text()"
+                    else:
+                        item_data_field_xpath = "//*[@id=\"results\"]/div[" + str(
+                            i) + "]/div[4]/div/table/tbody/tr[" + str(
+                            j) + "]/td[1]/text()"
+                        item_data_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/div[4]/div/table/tbody/tr[" + str(
+                            j) + "]/td[2]/text()"
+
+                data_el = {
+                    "title": item_title[0],
+                    "first_registration": item_first_registration[0],
+                    "kilometers": str(item_kilometers).strip("[']"),
+                    "fuel": item_fuel[0],
+                    "gearbox": item_gearbox[0],
+                    "engine": item_engine[0].strip(),
+                    "price": item_price[0],
+                    "link": item_link[0]
+                }
+
+                data.append(data_el)
+
+                counter = 0
+
+            i += 1
+
+            title_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/div[1]/span/text()"
+            link_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/a/@href"
+            price_xpath = "//*[@id=\"results\"]/div[" + str(i) + "]/div[6]/div[1]/div[1]/div/text()"
+
+        print(data)

@@ -1,0 +1,446 @@
+/* TOP PONUDBA  --------------------------------------------------*/
+/*  Large devices (desktops, 992px and up)
+-------------------------------------------------- */
+@media (min-width: 992px) 
+{
+.GO-Results-Top-Photo {
+	width: 352px;
+	border-style:solid;
+	border-width:0px 1px 0px 0px;
+	border-color:#E1E1E1;
+}
+.GO-Results-Top-Photo img  {
+	display: block;
+	margin: 0 auto;
+	border: none;
+	max-width: 320px;
+	max-height: 240px;
+}
+.GO-Results-Top-Data {
+	width: 376px;
+	padding-left: 0px;
+}
+.GO-Results-Top-PriceLogo{
+    width: 100%;
+    padding-left: 16px;
+}
+.GO-Results-Top-Price{
+	width: 160px;
+}
+.GO-Results-Top-Logo{
+	width: 160px;
+    z-index: 2;
+}
+}
+/*  Medium devices (tablets, 768px and up)
+-------------------------------------------------- */
+@media (min-width: 768px) and (max-width: 991.98px)
+{
+.GO-Results-Top-Photo {
+	width: 352px;
+	border-style:solid;
+	border-width:0px 1px 0px 0px;
+	border-color:#E1E1E1;
+}
+.GO-Results-Top-Photo img  {
+	display: block;
+	margin: 0 auto;
+	border: none;
+	max-width: 320px;
+	max-height: 240px;
+}
+.GO-Results-Top-Data {
+	width: calc(100% - 352px);
+	padding-left: 0px;
+}
+.GO-Results-Top-PriceLogo{
+    width: 100%;
+    padding-left: 16px;
+}
+.GO-Results-Top-Price{
+	width: 160px;
+}
+.GO-Results-Top-Logo{
+	width: 160px;
+    width: calc(100% - 208px);
+    z-index: 2;
+}
+}
+@media (min-width: 576px) and (max-width: 767.98px)
+{
+.GO-Results-Top-Photo {
+	width: 352px;
+	border-style:solid;
+	border-width:0px 1px 0px 0px;
+	border-color:#E1E1E1;
+}
+.GO-Results-Top-Photo img  {
+	display: block;
+	margin: 0 auto;
+	border: none;
+	max-width: 320px;
+	max-height: 240px;
+}
+.GO-Results-Top-Data {
+	width: calc(100% - 352px);
+	/*padding-left: 16px; */
+	padding-left: 0px;
+}
+.GO-Results-Top-PriceLogo{
+	width: calc(100% - 192px);
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.GO-Results-Top-Price{
+	width: 100%;
+}
+.GO-Results-Top-Logo{
+	width: 100%;
+    margin-bottom: 16px;
+    z-index: 2;
+}
+}
+/* display width less than 576
+-------------------------------------------------- */
+@media (max-width:575.98px) 
+{
+.GO-Results-Top-Photo {
+	width: 100%;
+	border-style:solid;
+	border-width:0px 0px 0px 0px;
+	border-color:#E1E1E1;
+}
+.GO-Results-Top-Data {
+	width: 100%;
+	/*padding-left: 16px; */
+	padding-left: 0px;
+}
+.GO-Results-Top-PriceLogo{
+	width: 100%;
+    padding-left: 16px;
+    margin-top 16px;
+}
+.GO-Results-Top-Price{
+	width: 160px;
+}
+.GO-Results-Top-Logo{
+	width: calc(100% - 208px);
+    z-index: 2;
+}
+}
+/* TOP PONUDBA PHOTO CONTAINER --------------------------------------------------*/
+.GO-Results-Top-PhotoTop {
+	position: relative;
+    top: 0;
+    left: 0;
+	padding: 0px 0px 0px 0px; 
+	margin: 0px; 
+	background-color: #000;
+	background-color: #E9E9E9;
+}
+/* TOP PONUDBA PHOTO BADGES --------------------------------------------------*/
+.GO-Results-Top-BadgeTop {
+	position: absolute;
+    top: 0px;
+    left: 0;
+	z-index: 10;
+	width: 110px;
+	height: 24px;
+	line-height: 24px;
+	margin: 26px 0px 0px 0px;
+	padding: 0px 7px 0px 7px;
+	background-color:#FF0000;
+	color: #FFFFFF;
+	font-weight:bold;
+	font-size:12px;
+	border-style:solid;
+	border-width:1px 1px 1px 0px;
+	border-color:#FFF; 
+}
+.GO-Results-Top-BadgeHD {
+	position: absolute;
+    top: 0;
+    right: 0;
+	z-index: 1010;
+	width: 32px;
+	height: 22px;
+	margin: 14px 14px 0px 0px;
+	padding: 0px 0px 0px 5px;
+	border: 0px;
+	color: #FFF;
+	font-size:14px;
+	font-weight:bold;
+	line-height:22px;
+	background:#000000;
+	border-style:solid;
+	border-width:0px 0px 1px 1px;
+	border-color:#FFF; 
+}
+/* TOP PONUDBA PHOTO STATUS --------------------------------------------------*/
+.GO-Results-Top-Status {
+	position: relative;
+    top: 0;
+    left: 0;
+	width: 100%;
+	height: 40px;
+    line-height:40px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	background-color:#E1E1E1 ; 
+	border-style:solid;
+	border-width:1px;
+	border-color:#E1E1E1; 
+	font-size:16px;
+	color: #000;
+	border: none;
+	text-align:center;
+	font-weight: normal;
+}
+.GO-Results-Top-Status img {
+	display: block;
+	margin: 0 0 0 0px;
+	padding: 10px 0px 10px 0px
+}
+.GO-Results-Top-Status span {
+	float:left;
+    margin:0 0 0 0px;
+	vertical-align:middle;
+	border-style:solid;
+	border-width:0px;
+	line-height:38px;
+}
+.GO-Results-Top-Status i{
+	float:left;
+	line-height:38px;
+	padding: 0px 14px 0px 14px;
+}
+/* AD DATA CONTAINER --------------------------------------------------*/
+.GO-Results-Top-Data-Top {
+	/*height: 120px;*/
+	height: 136px;
+}
+.GO-Results-Top-Data-Bottom {
+	height: 82px;
+}
+.GO-Results-Top-Data-Bottom-Komentar {
+	height: 56px;
+	margin: 0px 0px 0px 0px; 
+	background: #E9E9E9;
+	overflow: hidden;
+	padding: 7px 7px 7px 7px;
+	font-size: 12px; 
+	line-height: 16px; 
+	font-style: italic;
+    font-weight: normal;
+   	font-family: Arial, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+
+/* AD PRICE CONTAINER --------------------------------------------------*/
+/* RESULTS PRICE CONTAINER --------------------------------------------------------------------*/
+.GO-Results-Top-Price {
+	position: relative;
+	float: left;
+	/*width: 160px;*/
+	height: 75px;
+	padding: 0px 0px 0px 0px; 
+	padding-top: 20px;
+	margin: 0px 0px 0px 0px; 
+    text-align: center;
+	border-style:solid;
+	border-width:1px 1px 1px 1px;
+	border-color:#E9E9E9; 
+	font-size: 18px; 
+	font-weight:bold;
+	color:#062f57; 
+	background-color: #FFFFFF;
+}
+.GO-Results-Top-Price-Akcija {
+	border-color:#FF0000; 
+	padding-top: 0px;
+}
+.GO-Results-Top-Price-Akcija-TXT {
+	width: 100%; 
+	height: 20px;
+	margin: 0px 0px 0px 0px;
+	font-size: 12px; 
+	line-height: 20px;
+	font-weight:bold;
+	text-align:center;
+	color:#FFFFFF; 
+	background-color: #FF0000;
+}
+.GO-Results-Top-Price-Mid {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 40px;
+	padding: 3px 0px 2px 0px; 
+}
+.GO-Results-Top-Price-Bottom {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 15px;
+}
+.GO-Results-Top-Price-TXT-Regular {
+	height: 20px;
+	line-height: 18px;
+	text-align:center;
+	font-size: 18px; 
+	color:#062f57; 
+}
+.GO-Results-Top-Price-TXT-StaraCena  {
+	height: 20px;
+	font-size: 18px; 
+	line-height: 18px;
+	font-weight:bold;
+	text-align:center;
+	color:#7F9DB9; 
+	position: relative;
+	width: 110px;
+	margin: 0px auto;
+}
+.GO-Results-Top-Price-TXT-StaraCena:before {
+	  position: absolute;
+	  content: "";
+	  left: 0;
+	  top: 50%;
+	  right: 0;
+	  border-top: 1px solid;
+	  border-color: inherit;
+	  -webkit-transform:rotate(-5deg);
+	  -moz-transform:rotate(-5deg);
+	  -ms-transform:rotate(-5deg);
+	  -o-transform:rotate(-5deg);
+	  transform:rotate(-5deg);
+ }
+ .GO-Results-Top-Price-TXT-AkcijaCena {
+	width: 120px;
+	height: 20px;
+	margin: 0px auto;
+	font-size: 18px; 
+	line-height: 20px;
+	font-weight:bold;
+	text-align:center;
+	color:#FF0000; 
+}
+.GO-Results-Top-Price-TXT-BruttoNeto {
+	height: 20px;
+	line-height: 14px;
+	text-align:center;
+	font-size: 14px; 
+	color:#7F9DB9; 
+}
+.GO-Results-Top-Price-TXT-Bottom {
+	width: 100%; 
+	height: 13px;
+	margin: 0px 0px 0px 0px;
+	padding-top: 1px;
+	font-size: 10px; 
+	line-height: 13px;
+	font-weight:bold;
+	text-align:center;
+	vertical-align:middle;
+	color:#FFFFFF; 
+	background-color: #7F9DB9;
+	color:#000000; 
+	background-color: #E9E9E9;
+}
+.GO-Results-Top-Price-TXT-Country {
+	width: 100%; 
+	height: 13px;
+	margin: 0px 0px 0px 0px;
+	padding-top: 1px;
+	font-size: 10px; 
+	line-height: 13px;
+	font-weight:bold;
+	text-align:center;
+	vertical-align:middle;
+	color:#FFFFFF; 
+	background-color: #062f57;
+}
+/* RESULTS LOGO CONTAINER --------------------------------------------------*/
+.GO-Results-Top-Logo {
+	position: relative;
+	background-color:#FFFFFF; 
+	float: left;
+	height: 75px;
+	line-height: 75px; 
+	padding: 0px 0px 0px 0px; 
+	margin-top: 0px;
+	border-style:solid;
+	border-width:1px 1px 1px 1px;
+	border-color:#E9E9E9;
+	text-align:center;
+    z-index: 2;
+}
+.GO-Results-Top-Logo img{
+	max-width: 120px;
+	max-height: 60px;
+    border: 0px;
+}
+
+/* ------------------------  BADGE BACK ------------------ */
+.ResultsTOPAdPhotoBottomBadge {
+	background-color:#E9E9E9;
+	color: #000000;  
+}
+.ResultsTOPAdPhotoBlackBadge {
+	background-color:#000000;  
+}
+
+.ResultsTOPAdPhotoBottomTop {
+	background-color:#FF0000;  
+}
+
+/* KOMENTAR */
+.ResultsKomentarTOP {
+	position: relative;
+	width: 364px;
+	height: 100px;
+	padding: 0px 0px 0px 0px; 
+	margin: 0px; 
+	overflow: hidden;
+}
+.ResultsKomentarTOP p {
+	display: block;
+	position:relative;
+	width: 336px;
+	height: 72px; 
+	background: #E9E9E9;
+	padding: 14px;
+	margin-bottom: 5px;
+	font-size: 12px; 
+	line-height: 17px; 
+	font-style: italic;
+    font-weight: normal;
+   	font-family: Arial, Arial, Helvetica, sans-serif;
+	color: #000000;
+}
+/* BUTTON BOX*/
+.ButtonBoxTOP {
+	position: absolute;
+	z-index: 10;
+	width: 320px;
+	height: 38px;
+	padding: 0px 0px 0px 0px; 
+	margin: 0px; 
+}
+.ButtonBoxTOPLeft {
+	float:left;
+	width: 148px;
+	padding: 0px 0px 0px 0px; 
+	margin: 5px 0px 0px 7px; 
+}
+.ButtonBoxTOPRight {
+	float:left;
+	width: 148px;
+	padding: 0px 0px 0px 0px; 
+	margin: 5px 0px 0px 7px; 
+}
+.ButtonBoxTOPBelowAd {
+	width: 944px;
+	padding: 7px 14px 3px 9px;
+}
