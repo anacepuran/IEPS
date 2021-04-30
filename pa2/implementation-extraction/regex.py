@@ -122,7 +122,7 @@ def regex_avtonet(files):
 
         count = 0
         for link in link_matches:
-            data[count]['link'] = link
+            data[count]['link'] = link.replace('amp;', '')
             count += 1
 
         count = 0

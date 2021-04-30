@@ -132,18 +132,18 @@ def xpath_avtonet(files):
                 item_first_registration = item_kilometers = item_fuel = item_gearbox = item_engine = ""
 
                 if not item_price:
-                    new_price_xpath_1 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[7]/div[1]/div[2]/div[2]/text()"
-                    new_price_xpath_2 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[6]/div[1]/div[2]/div[2]/text()"
-                    new_price_xpath_3 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[7]/div[1]/div[1]/div/text()"
-                    new_price_xpath_4 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[4]/div[3]/div[2]/div[1]/div/text()"
-                    if dom.xpath(new_price_xpath_1):
-                        item_price = dom.xpath(new_price_xpath_1)
-                    elif dom.xpath(new_price_xpath_2):
-                        item_price = dom.xpath(new_price_xpath_2)
-                    elif dom.xpath(new_price_xpath_3):
-                        item_price = dom.xpath(new_price_xpath_3)
-                    elif dom.xpath(new_price_xpath_4):
-                        item_price = dom.xpath(new_price_xpath_4)
+                    price_xpath_1 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[7]/div[1]/div[2]/div[2]/text()"
+                    price_xpath_2 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[6]/div[1]/div[2]/div[2]/text()"
+                    price_xpath_3 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[7]/div[1]/div[1]/div/text()"
+                    price_xpath_4 = "//*[@id=\"results\"]/div[" + str(i) + "]/div[4]/div[3]/div[2]/div[1]/div/text()"
+                    if dom.xpath(price_xpath_1):
+                        item_price = dom.xpath(price_xpath_1)
+                    elif dom.xpath(price_xpath_2):
+                        item_price = dom.xpath(price_xpath_2)
+                    elif dom.xpath(price_xpath_3):
+                        item_price = dom.xpath(price_xpath_3)
+                    elif dom.xpath(price_xpath_4):
+                        item_price = dom.xpath(price_xpath_4)
 
                 j = 1
 

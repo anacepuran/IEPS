@@ -4,7 +4,7 @@ import io
 
 from regex import regex_overstock, regex_rtvslo, regex_avtonet
 from xpath import xpath_overstock, xpath_rtvslo, xpath_avtonet
-from automatic_web_extraction import awe_overstock, awe_rtvslo, awe_avtonet
+from automatic_web_extraction import awe
 
 
 files_overstock = []
@@ -25,7 +25,7 @@ def get_files():
         "r", "utf-8")
 
     file_avtonet_1 = codecs.open("../input-extraction/avto.net/www.Avto.net_ Največja ponudba.html", "r", "windows-1250")
-    file_avtonet_2 = codecs.open("../input-extraction/avto.net/www.Avto.net_ Največja ponudba_2.html", "r", "windows-1250")
+    file_avtonet_2 = codecs.open("../input-extraction/avto.net/www.Avto.net_ Zadnjih 100.html", "r", "windows-1250")
 
     files_overstock.append(file_overstock_1.read())
     files_overstock.append(file_overstock_2.read())
@@ -53,21 +53,19 @@ def hello(method):
 
 
 def regular_expressions():
-    # regex_overstock(files_overstock)
-    # regex_rtvslo(files_rtvslo)
+    regex_overstock(files_overstock)
+    regex_rtvslo(files_rtvslo)
     regex_avtonet(files_avtonet)
 
 
 def xpath():
-    # xpath_overstock(files_overstock)
-    # xpath_rtvslo(files_rtvslo)
+    xpath_overstock(files_overstock)
+    xpath_rtvslo(files_rtvslo)
     xpath_avtonet(files_avtonet)
 
 
 def automatic_web_extraction():
-    awe_overstock(files_overstock)
-    awe_rtvslo(files_rtvslo)
-    awe_avtonet(files_avtonet)
+    awe()
 
 
 if __name__ == "__main__":
