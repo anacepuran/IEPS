@@ -3,6 +3,7 @@ from psycopg2 import pool
 from datetime import datetime
 import threading
 from crawler.consts import *
+import time
 
 lock = threading.Lock()
 db_pool = None
@@ -11,8 +12,8 @@ db_pool = None
 def initiateConnectionToDatabase(seed_urls):
     # initiate connection
     try:
-        db_pool = pool.ThreadedConnectionPool(3, 10, user=DB_['username'], password=DB_['password'], database=DB_['db_name'],
-                                              host=DB_['host'], port=DB_['port'])
+        db_pool = pool.ThreadedConnectionPool(3, 10, user=DB_['username'], password=DB_['password'],
+                                            database=DB_['db_name'], host=DB_['host'], port=DB_['port'])
         if db_pool:
             print('PostgreSQL connection pool is succesfully created!')
         else:
@@ -72,33 +73,74 @@ def getSeedSiteFromDB(seed_site_id, db_connection):
     return robots_site
 
 
+# GET ALL SITES
+def getSitesFromDB(db_connection):
+    sites = None
+
+    cur = db_connection.cursor()
+    try:
+        sql_query = """ SELECT * FROM crawldb.site """
+        cur.execute(sql_query)
+        sites = cur.fetchall()
+    except Exception as error:
+        print("Fetching sites led to", error)
+    return sites
+
+
 # GET FIRST UNPROCESSED PAGE
 def getFirstFromFrontier(db_connection):
+    time.sleep(12)
     accessed_current_page = None
 
     cur = db_connection.cursor()
-    with lock:
-        try:
-            sql_query = """ SELECT * FROM crawldb.page
-                            WHERE finnished IS %s
+    try:
+        sql_query = """ SELECT * FROM crawldb.page
+                            WHERE accessed_time IS %s
                             ORDER BY id asc
                             LIMIT 1 """
-            cur.execute(sql_query, (False, ))
-            current_page = cur.fetchone()
-            if current_page is not None:
-                now = datetime.now()
-                access_time = now.strftime("%Y-%m-%d %H:%M:%S'")
-
-                sql_query = """ UPDATE crawldb.page
+        cur.execute(sql_query, (None, ))
+        current_page = cur.fetchone()
+        if current_page is not None:
+            now = datetime.now()
+            access_time = now.strftime("%Y-%m-%d %H:%M:%S'")
+            sql_query = """ UPDATE crawldb.page
                                 SET accessed_time = %s
                                 WHERE id = %s
                                 RETURNING * """
-                cur.execute(sql_query, (access_time, current_page[0]))
-                accessed_current_page = cur.fetchone()
-                db_connection.commit()
-        except Exception as error:
-            print("Getting the first site from the frontier led to", error)
+            cur.execute(sql_query, (access_time, current_page[0]))
+            accessed_current_page = cur.fetchone()
+            db_connection.commit()
+    except Exception as error:
+        print("Getting the first site from the frontier led to", error)
     return accessed_current_page
+
+
+# RESET FRONTIER 
+def resetFrontier(db_connection):
+    changed = False
+
+    cur = db_connection.cursor()
+    try:
+        sql_query = """ SELECT * FROM crawldb.page
+                            WHERE accessed_time IS NOT %s
+                            ORDER BY id desc
+                            LIMIT 1 """
+        cur.execute(sql_query, (None, ))
+        current_page = cur.fetchone()
+        print("Checking: ", current_page[0], current_page[3], current_page[8])
+        if current_page is not None and current_page[8] == False:
+            changed = True
+            sql_query = """ UPDATE crawldb.page
+                                SET accessed_time = %s
+                                WHERE id = %s
+                                RETURNING * """
+            cur.execute(sql_query, (None, current_page[0]))
+            accessed_current_page = cur.fetchone()
+            print("Reseting: ", accessed_current_page[0], accessed_current_page[3])
+            db_connection.commit()
+    except Exception as error:
+        print("Reseting frontier led to", error)
+    return changed
 
 
 # POST PAGE
@@ -215,7 +257,7 @@ def getStatusFromPreviousPage(current_page_ID, db_connection):
     return page_status
 
 
-# PAGE IS NOT HTML
+# PUT PAGE - PAGE IS NOT HTML
 def updatePageAsNotHTML(current_page_ID, status_code, db_connection):
     page = None
     finnished = True

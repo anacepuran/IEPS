@@ -26,17 +26,16 @@ def getResponseRobots(seed, db_connection):
         rp.set_url(robots_url)
         rp.read()
 
-        # check if robots are allowed
+        # CHECK IF ROBOTS ARE ALLOWED
         url = "http://" + seed
         if not rp.can_fetch(USER_AGENT, url):
-            insertSiteToDB(
-                seed, response_robots, sitemap, delay, db_connection)
+            insertSiteToDB(seed, response_robots, sitemap, delay, db_connection)
             print("Robots are not allowed on: ", seed)
             return "NOT ALLOWED", 0, 0
         delay = rp.crawl_delay(USER_AGENT)
         sitemap = rp.site_maps()
 
-        # handle redirect
+        # HANDLE REDIRECT
         if '<html>' in response_robots or '<!DOCTYPE html>' in response_robots:
             response_robots = None
     return response_robots, sitemap, delay
