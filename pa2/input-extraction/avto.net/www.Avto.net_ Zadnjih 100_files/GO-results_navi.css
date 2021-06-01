@@ -1,0 +1,17 @@
+/* NAVI PREV NEXT */
+ul#GO-naviprevnext li:hover {
+		color: #FFFFFF;
+		background-color:#072F57; 
+}
+ul#GO-naviprevnext li a:hover {
+		color: #FFFFFF;
+		background-color:#072F57; 
+}
+ul#GO-naviprevnext li.current a{
+		background-color:#E9E9E9; 
+		color: #072F57;
+}
+ul#GO-naviprevnext li.current a:hover{
+		background-color:#E9E9E9; 
+		color: #072F57;
+}

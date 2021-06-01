@@ -1,0 +1,118 @@
+/* ---------------------------   RESULTS SELECTED CRITERIA  ----------------------------*/
+.GO-ResultsSelectedCriteria  {
+	position: relative;
+	float: left;
+	background-color:#FFFFFF; 
+	width: 228px;
+	padding: 14px 0px 0px 0px; 
+	margin: 0px 0px 0px 0px; 
+	border-style:solid;
+	border-width:1px 1px 1px 1px;
+	border-color:#7F9DB9; 
+	border: none;
+}
+.GO-ResultsSelectedCriteria ul { 
+	position: relative;
+	list-style-type:none;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+}
+.GO-ResultsSelectedCriteria ul li { 
+	float: left; 
+	position: relative;
+	display: block;
+	width: 200px;
+	margin-left: 14px;
+	margin-right: 14px;
+	margin-bottom: 7px;
+	line-height: 14px; 
+	padding: 7px;
+	padding-left: 28px;
+	background-color:#E9E9E9;
+	text-decoration: none;
+	font-size:14px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	behavior: url(PIE.htc);
+}
+.GO-ResultsSelectedCriteria ul li.GO-ResultsSelectedCriteriaSub1 { 
+	width: 186px;
+	margin-left: 28px;
+}
+.GO-ResultsSelectedCriteria ul li.GO-ResultsSelectedCriteriaSub2 { 
+	width: 172px;
+	margin-left: 42px;
+}
+.GO-ResultsSelectedCriteria li::before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 7px;
+	left: 204px;
+	left: 10px;
+	content: "\f00d";
+}
+.GO-ResultsSelectedCriteria ul li:hover {
+	background-color:#FF0000;
+	color: #FFF;
+}
+.GO-ResultsSelectedCriteria ul li i { 
+	padding: 0px 2px 0px 0px;
+	font-size:15px;
+}
+.GO-ResultsSelectedCriteria ul li span { 
+	padding: 0px 2px 0px 0px;
+}
+/* ---------------------------   RESULTS SELECTED CRITERIA  MOBILE ----------------------------*/
+.GO-ResultsSelectedCriteriaMobile  {
+	position: relative;
+	float: left;
+	padding: 14px 0px 0px 0px; 
+	margin: 0px 0px 0px 0px; 
+}
+.GO-ResultsSelectedCriteriaMobile ul { 
+	position: relative;
+	list-style-type:none;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+}
+.GO-ResultsSelectedCriteriaMobile ul li { 
+	float: left; 
+	position: relative;
+	display: block;
+	margin-left: 14px;
+	margin-bottom: 7px;
+	line-height: 14px; 
+	padding: 7px;
+	padding-left: 28px;
+	background-color:#E9E9E9;
+	text-decoration: none;
+	font-size:14px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	behavior: url(PIE.htc);
+}
+.GO-ResultsSelectedCriteriaMobile ul li.GO-ResultsSelectedCriteriaSub1 { 
+	width: 186px;
+	margin-left: 28px;
+}
+.GO-ResultsSelectedCriteriaMobile ul li.GO-ResultsSelectedCriteriaSub2 { 
+	width: 172px;
+	margin-left: 42px;
+}
+.GO-ResultsSelectedCriteriaMobile li::before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 7px;
+	left: 204px;
+	left: 10px;
+	content: "\f00d";
+}
+.GO-ResultsSelectedCriteriaMobile ul li i { 
+	padding: 0px 2px 0px 0px;
+	font-size:15px;
+}
+.GO-ResultsSelectedCriteriaMobile ul li span { 
+	padding: 0px 2px 0px 0px;
+}
